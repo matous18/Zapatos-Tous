@@ -21,5 +21,4 @@ function ItemCount() {
   );
 }
 
-render(<ItemCount />, document.getElementById('root'));
 export default ItemCount;
