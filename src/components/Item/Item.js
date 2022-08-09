@@ -3,7 +3,8 @@ const Item=[{
     nombre: "Zapatos-blancos",
     img:"https://ae01.alicdn.com/kf/HTB1BYpWoPnD8KJjSspbq6zbEXXaH/Zapatos-blancos-con-cordones-para-mujer-tenis-femeninos-de-cuero-PU-y-lona-de-color-s.jpg_Q90.jpg_.webp",
     category: "Casual",
-    stock: 30
+    stock: 30,
+    detail: "Zapatos blancos casuales para salir"
 }]
 
 const obtenerFetch= new Promise((result, reject)=>{

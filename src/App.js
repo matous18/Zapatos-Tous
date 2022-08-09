@@ -1,11 +1,8 @@
 import './App.css';
 import NavBar from './components/Navbar/NavBar';
 import 'bootstrap/dist/css/bootstrap.css'
-import { ItemListContainer } from './components/Navbar/ItemListContainer/ItemListContainer';
-import obtenerFetch from './components/Item/Item';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { ItemListContainer } from './components/Containers/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/Containers/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
 
@@ -14,6 +11,7 @@ function App() {
       <NavBar></NavBar>
       <ItemListContainer text="Bienvenido"></ItemListContainer>
       <ItemListContainer text="Aquí hay zapatos de locura"></ItemListContainer>
+      <ItemDetailContainer></ItemDetailContainer>
     </div>
   );
 }
