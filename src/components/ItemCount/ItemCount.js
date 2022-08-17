@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
@@ -8,7 +7,6 @@ function ItemCount() {
     <div className='container my-6'>
         <div className='card text-center my-5'>
             <div className='card-body'>
-                <h1>Counter App</h1>
                 <div className='my-5'>
                     <h2 className='my-5'>{count}</h2>
                     <Button variant="dark" onClick={() => setCount(count-1)} disabled={count === 0}>-</Button>

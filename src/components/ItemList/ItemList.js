@@ -5,37 +5,26 @@ import { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ItemDetailContainer from "../Containers/ItemDetailContainer/ItemDetailContainer";
+import {Link} from 'react-router-dom';
 
-function ItemList(props) {
-
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(()=>{
-    obtenerFetch
-    .then((items)=>setData(items))
-    .catch(mist=>console.log(mist))
-    .finally(()=>setLoading(false))
-    },[])
-
+function ItemList(shoe) {
     return (<>
-    <h1>Lista de Items</h1>
-    {
-        loading ? <h2>Espera...</h2>:
-        data.map(shoe=>
-        <Card style={{ width: '18rem' }} key={shoe.id}>
+        <Card style={{ width: '16rem'}} key={shoe.id}>
         <Card.Img variant="top" src={shoe.img} />
         <Card.Body>
             <Card.Title>{shoe.nombre}</Card.Title>
             <Card.Text>
                 {shoe.category}
+            </Card.Text>
+           <Card.Text>
                 {shoe.stock}
             </Card.Text>
-            <Button variant="primary">Ver más</Button>
+            <Link to={`/detail/${shoe.id}`}>
+                <Button variant="primary">Ver más</Button>
+            </Link>
         </Card.Body>
         </Card>
-            )
-    }
     </>
     )
 }

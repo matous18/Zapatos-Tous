@@ -1,29 +1,47 @@
 import './ItemListContainer.css'
-import ItemCount from '../../ItemCount/ItemCount';
 import obtenerFetch from '../../Item/Item';
 import ItemList from '../../ItemList/ItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getItemById, getItemByCategory } from '../../Item/Item';
 
-function ItemListContainer (props){
+function ItemListContainer (){
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const {categoryId} = useParams()
 
     useEffect(()=>{
-    obtenerFetch
-    .then((items)=>setData(items))
-    .catch(mist=>console.log(mist))
-    .finally(()=>setLoading(false))
-    },[])
+
+        if(!categoryId){
+            obtenerFetch
+            .then((items)=>setData(items))
+            .catch(mist=>console.log(mist))
+            .finally(()=>setLoading(false))
+        }
+        else{
+            getItemByCategory(categoryId).then(data=>{setData(data)})
+        }
+    },[categoryId])
 
     return (
         <div className='container'>
-            <header>
-                <h1>{props.text}</h1>
-            </header>
-            <ItemList></ItemList>
-            <ItemCount></ItemCount>
+            <>
+                {
+                    loading ? <h2>Espera...</h2>:
+                    data.map(shoe=> {
+                        return <ItemList 
+                            key={shoe.id} 
+                            img={shoe.img} 
+                            nombre={shoe.nombre}
+                            category={shoe.category}
+                            stock={shoe.stock}
+                             />
+                    }
+                        )
+                }
+            </>
         </div>
 
     )

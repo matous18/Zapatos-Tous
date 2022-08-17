@@ -1,7 +1,17 @@
 h1 {
+    display: flex;
+    flex-direction: row;
     background-color: black;
     padding: 10px 30px;
     margin-top: 5vh;
     color: white;
     border-radius: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5vh;
+    row-gap: 20px;
+    column-gap: 20px;
 }
