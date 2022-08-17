@@ -1,26 +1,22 @@
 import React from "react";
-import obtenerFetch from "../Item/Item";
-import { useState } from "react";
-import { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ItemDetailContainer from "../Containers/ItemDetailContainer/ItemDetailContainer";
 import {Link} from 'react-router-dom';
 
-function ItemList(shoe) {
+function ItemList({id, img, nombre, category, stock}) {
     return (<>
-        <Card style={{ width: '16rem'}} key={shoe.id}>
-        <Card.Img variant="top" src={shoe.img} />
+        <Card style={{ width: '16rem'}} key={id}>
+        <Card.Img variant="top" src={img} />
         <Card.Body>
-            <Card.Title>{shoe.nombre}</Card.Title>
+            <Card.Title>{nombre}</Card.Title>
             <Card.Text>
-                {shoe.category}
+                {category}
             </Card.Text>
            <Card.Text>
-                {shoe.stock}
+                {stock}
             </Card.Text>
-            <Link to={`/detail/${shoe.id}`}>
+            <Link to={`/detail/${id}`}>
                 <Button variant="primary">Ver más</Button>
             </Link>
         </Card.Body>

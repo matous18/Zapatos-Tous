@@ -4,7 +4,7 @@ import ItemList from '../../ItemList/ItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getItemById, getItemByCategory } from '../../Item/Item';
+import { getItemByCategory } from '../../Item/Item';
 
 function ItemListContainer (){
 
@@ -30,14 +30,8 @@ function ItemListContainer (){
             <>
                 {
                     loading ? <h2>Espera...</h2>:
-                    data.map(shoe=> {
-                        return <ItemList 
-                            key={shoe.id} 
-                            img={shoe.img} 
-                            nombre={shoe.nombre}
-                            category={shoe.category}
-                            stock={shoe.stock}
-                             />
+                    data.map(data=> {
+                        return <ItemList {...data}/>
                     }
                         )
                 }

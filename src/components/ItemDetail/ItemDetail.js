@@ -10,27 +10,28 @@ const ItemDetail = ({ img, category, nombre, detail, stock, price}) => {
   const onAdd = () => {
     setGoToCart(true);
   }
+
   return (
-<>
-      <Card>
-        <Card.Img variant="top" src={img} style={{ width: '30rem' }} />
-        <Card.Body>
-          <Card.Header>{category}</Card.Header>
-          <Card.Title>{nombre}</Card.Title>
-          <Stack gap={3}>
-            <div className="bg-light border">{detail}</div>
-            <div className="bg-light border">{stock}</div>
-            <div className="bg-light border">{price}</div>
-          </Stack>
-        </Card.Body>
-        {
-          goToCart
-          ? <Link to='/cart'>Terminar compra</Link>
-          : <ItemCount initial={0} stock={stock}></ItemCount>
-        }
-      </Card>
-</>
+    <>
+          <Card style={{height: '30rem'}}>
+            <Card.Img variant="top" src={img} style={{ width: '30rem'}} />
+            <Card.Body>
+              <Card.Header>{category}</Card.Header>
+              <Card.Title>{nombre}</Card.Title>
+              <Stack gap={3}>
+                <div className="bg-light border">{detail}</div>
+                <div className="bg-light border">{stock}</div>
+                <div className="bg-light border">{price}</div>
+              </Stack>
+            </Card.Body>
+            {
+              goToCart
+              ? <Link to='/cart'>Terminar compra</Link>
+              : <ItemCount initial={0} stock={stock}></ItemCount>
+            }
+          </Card>
+    </>
   )
-};
+}
 
 export default ItemDetail;
