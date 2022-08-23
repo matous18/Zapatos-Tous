@@ -9,22 +9,27 @@ const CartProvider = ({ children }) => {
 
     const clearCart = () => setCart([]);
 
-    const addProduct = (item, newQty) => {
-        const newCart = cart.filter(prod => prod.id !== item.id);
-        newCart.push({...item, qty: newQty});
+    const addProduct = (item, qty) => {
+        let newCart;
+        let product = cart.find(product => product.id === item.id);
+        if (product){
+            product.qty += qty;
+            newCart = [...cart];
+        } else {
+            product = {...item, qty: qty};
+            newCart = [...cart, product];
+        }
         setCart(newCart)
     }
 
     console.log('carrito: ', cart);
 
-    const isInCart = (id) => {
-        return cart.find(product => product.id ===id) ? true : false;
-    }
+    const isInCart = (id) => cart.find(product => product.id ===id) ? true : false;
 
     const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
 
     const totalPrice = () => {
-        return cart.reduce((prev, act) => prev + act.qty *act.price , 0);
+        return cart.reduce((prev, act) => prev + act.qty * act.price, 0);
     }
 
     const totalProducts = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.qty, 0)

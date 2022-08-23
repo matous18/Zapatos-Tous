@@ -8,7 +8,7 @@ const ItemCart = ({ product }) => {
 
     return (
         <div className="itemCart">
-            <img src={product.img} alt={product.title}/>
+            <img src={product.img} alt={product.nombre}/>
             <div>
                 <p>Titulo: {product.title}</p>
                 <p>Cantidfad: {product.qty}</p>

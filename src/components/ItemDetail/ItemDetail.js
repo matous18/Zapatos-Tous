@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import Stack from 'react-bootstrap/Stack';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState, useContext} from 'react';
+import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { useCartContext } from '../../CartContext/CartContext';
 

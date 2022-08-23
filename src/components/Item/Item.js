@@ -46,7 +46,7 @@ const Item=[{
     stock: 20,
     detail: "Sandalias para comodidad",
     price: "20 USD"
-}]
+}];
 
 const obtenerFetch= new Promise((result, reject)=>{
     let condition=true
