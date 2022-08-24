@@ -1,22 +1,26 @@
 import React from "react";
 import { useCartContext } from "../../CartContext/CartContext";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 
-const ItemCart = ({ product }) => {
+const ItemCart = ({ img, nombre, qty, price, id}) => {
 
     const { removeProduct } = useCartContext();
 
     return (
-        <div className="itemCart">
-            <img src={product.img} alt={product.nombre}/>
-            <div>
-                <p>Titulo: {product.title}</p>
-                <p>Cantidfad: {product.qty}</p>
-                <p>Precio u: {product.price}</p>
-                <p>Subtotal: ${product.qty * product.price}</p>
-                <button onClick={() => removeProduct(product.id)} >Eliminar</button>
-            </div>
-        </div>
+        <Card key={id} >
+        <Card.Img variant="top" src={img} />
+        <Card.Header>{nombre}</Card.Header>
+        <Card.Body>
+          <Card.Text>
+                <div >Cantidad: {qty}</div>
+                <div >Precio u:{price}</div>
+                <div >Subtotal: ${qty*price}</div>
+          </Card.Text>
+          <Button variant="primary" onClick={() => removeProduct(id)}>Eliminar</Button>
+        </Card.Body>
+      </Card>
     )
 }
 
