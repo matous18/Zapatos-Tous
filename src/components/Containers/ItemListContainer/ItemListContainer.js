@@ -1,10 +1,10 @@
 import './ItemListContainer.css'
-import obtenerFetch from '../../Item/Item';
 import ItemList from '../../ItemList/ItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getItemByCategory } from '../../Item/Item';
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+
 
 function ItemListContainer (){
 
@@ -14,14 +14,16 @@ function ItemListContainer (){
 
     useEffect(()=>{
 
-        if(!categoryId){
-            obtenerFetch
-            .then((items)=>setData(items))
-            .catch(mist=>console.log(mist))
-            .finally(()=>setLoading(false))
-        }
-        else{
-            getItemByCategory(categoryId).then(data=>{setData(data)})
+        const querydb = getFirestore();
+        const queryCollection = collection(querydb, 'Items');
+        
+        if(categoryId){
+            const queryFilter = query(queryCollection, where('category', '==', categoryId))
+            getDocs(queryFilter)
+                .then(res => res.docs.map( product => ({id: product.id, ...product.data()})));
+        } else {
+            getDocs(queryCollection)
+                .then(res => res.docs.map( product => ({id: product.id, ...product.data()})));
         }
     },[categoryId])
 

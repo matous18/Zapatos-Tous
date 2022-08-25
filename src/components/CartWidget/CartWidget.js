@@ -5,15 +5,16 @@ import { propTypes } from 'react-bootstrap/esm/Image';
 import { useCartContext } from '../../CartContext/CartContext';
 import {Link} from 'react-router-dom';
 
-function CartWidget() {
+function CartWidget({price, qty}) {
 
-  const {totalProducts} = useCartContext();
+  const { totalProducts } = useCartContext();
+
   return (
     <div className="cart-widget">
       <Link to='/cart'>
         <FontAwesomeIcon icon={faCartShopping} size="2x" color="white" />
       </Link>
-      <div className="qty-display bg-light">{ totalProducts() || ''}</div>
+      <div className="qty-display bg-light">{ totalProducts (price, qty) || ''}</div>
     </div>
   );
 };

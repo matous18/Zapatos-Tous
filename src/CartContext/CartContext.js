@@ -30,10 +30,10 @@ const CartProvider = ({ children }) => {
 
     const totalPrice = () => {
         const initialValue = 0;
-        return cart.reduce((prev, act1, act2) => prev + act1.qty * act2.price, initialValue);
+        return cart.reduce((prev, act) => prev + act.qty * act.price, initialValue);
     }
 
-    const totalProducts = () => {
+    const totalProducts = () => {   
         const initialValue = 0;
         return cart.reduce((acumulador, productoActual) => acumulador + productoActual.qty, initialValue)
     }

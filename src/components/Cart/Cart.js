@@ -5,7 +5,7 @@ import ItemCart from "../ItemCart/ItemCart";
 
 
 const Cart = () => {
-    const { cart, totalPrice } = useCartContext();
+    const { cart, totalPrice, id } = useCartContext();
 
     if (cart.length === 0) {
      return (
@@ -18,11 +18,13 @@ const Cart = () => {
     return (
         <>
             {
-                cart.map(product => <ItemCart key={product.id} product={product} />)
+                cart.map(product => {
+                <ItemCart {...product} />
+            })
             }
-            <p>
+            <div>
                 total: {totalPrice()}
-            </p>
+            </div>
         </>
     )
 }
