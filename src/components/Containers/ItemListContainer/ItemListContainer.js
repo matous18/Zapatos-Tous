@@ -9,7 +9,6 @@ import { getFirestore, collection, getDocs, query, where } from "firebase/firest
 function ItemListContainer (){
 
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
     const {categoryId} = useParams()
 
     useEffect(()=>{
@@ -20,10 +19,10 @@ function ItemListContainer (){
         if(categoryId){
             const queryFilter = query(queryCollection, where('category', '==', categoryId))
             getDocs(queryFilter)
-                .then(res => res.docs.map( product => ({id: product.id, ...product.data()})));
+                .then(res => setData(res.docs.map( product => ({id: product.id, ...product.data()}))));
         } else {
             getDocs(queryCollection)
-                .then(res => res.docs.map( product => ({id: product.id, ...product.data()})));
+                .then(res => setData(res.docs.map( product => ({id: product.id, ...product.data()}))));
         }
     },[categoryId])
 
@@ -31,7 +30,6 @@ function ItemListContainer (){
         <div className='container'>
             <>
                 {
-                    loading ? <h2>Espera...</h2>:
                     data.map(data=> {
                         return <ItemList {...data}/>
                     }
