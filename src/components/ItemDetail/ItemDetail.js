@@ -5,15 +5,29 @@ import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { useCartContext } from '../../CartContext/CartContext';
 
-const ItemDetail = ({ img, category, nombre, detail, stock, price, data}) => {
-  const [goToCart, setGoToCart] = useState(false);
+const ItemDetail = ({ id, img, category, nombre, detail, stock, price, item}) => {
   const {addProduct} = useCartContext();
+  const [productAdded, setProductAdded] = useState(false);
 
-  const onAdd = (qty) => {
-    setGoToCart(true);
-    addProduct(data, qty);
-  }
+  const onAdd = (qtyToAdd) => {
 
+    addProduct( {
+      id,
+      nombre,
+      category,
+      qty: qtyToAdd,
+      img,
+      detail,
+      price
+    });
+
+    console.log(
+      ">>Evento recibido de ItemCount! - Agregado:",
+      qtyToAdd
+    );
+    setProductAdded(true);
+  };  
+  
   return (
     <>
           <Card style={{height: '30rem'}}>
@@ -28,10 +42,10 @@ const ItemDetail = ({ img, category, nombre, detail, stock, price, data}) => {
               </Stack>
             </Card.Body>
             {
-              goToCart
+              productAdded
               ? <Link to='/cart'>Terminar compra</Link>
-              : <ItemCount initial={0} stock={stock} onAdd={onAdd}></ItemCount>
-            }
+              : (<ItemCount initial={0} stock={stock} onAddItem={onAdd}></ItemCount>
+            )}
           </Card>
     </>
   )
