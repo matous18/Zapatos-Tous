@@ -1,0 +1,7 @@
+.Footer{
+    background-color: black !important;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}

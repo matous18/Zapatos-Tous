@@ -1,0 +1,12 @@
+.cart__container{
+    display: flex;
+    align-items: center;
+}
+
+
+.Img__cart{
+    display: flex;
+    width: 20vw;
+    justify-content: center;
+    margin-top: 3rem;
+}

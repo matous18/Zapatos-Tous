@@ -1,0 +1,21 @@
+.Item__Detail {
+    margin-top: 5vh;
+    width: 69vw;
+    left: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.Item__Detail__Img {
+    display: flex;
+    width: 15vw;
+    height: auto;
+    padding-left: 2rem;
+}
+
+.btn__purchase{
+    margin-right: 5rem;
+}

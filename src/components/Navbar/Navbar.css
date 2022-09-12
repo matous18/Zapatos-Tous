@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.BrandName {
+    width: 20%;
+    font-size: 200% !important;
+    font-family: 'Lobster', cursive !important;
+}
+
+.linkNav {
+    text-decoration: none;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.linkNav:hover{
+    color: lightyellow !important;
+    font-size: larger;
+}
+
+.linkContainer:hover{
+    background-color: yellow;
+}

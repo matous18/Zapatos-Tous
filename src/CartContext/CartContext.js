@@ -7,8 +7,6 @@ export const useCartContext = () => useContext(CartContext);
 const CartProvider = ({ defaultValue = [], children }) => {
     const [cart, setCart] = useState([]);
 
-    const clearCart = () => setCart([]);
-
     const addProduct = (item) => {
 
         const listaActualizada = cart.find(
@@ -31,13 +29,10 @@ const CartProvider = ({ defaultValue = [], children }) => {
 
     console.log('carrito: ', cart);
 
-    // const isInCart = (id) => cart.find(product => product.id ===id) ? true : false;
-
     const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
 
     return (
         <CartContext.Provider value={{
-            clearCart,
             removeProduct,
             addProduct,
             cartData: cart

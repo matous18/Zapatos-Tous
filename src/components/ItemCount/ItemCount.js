@@ -30,7 +30,7 @@ function ItemCount({onAddItem, stock}) {
                     <Button variant="dark" onClick={onSubSelectedItems} disabled={count === 0}>-</Button>
                     <Button variant="dark" onClick={onAddSelectedItems} disabled={count === stock}>+</Button>
                 </div>
-                <Button variant="dark" onClick={onAdd}>Agregar al carrito</Button>
+                <Button variant="dark" onClick={onAdd} disabled={count === 0}>Agregar al carrito</Button>
             </div>
         </div>
     </div>

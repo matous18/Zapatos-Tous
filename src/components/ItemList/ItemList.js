@@ -3,21 +3,19 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom';
+import './ItemList.css'
 
-function ItemList({id, img, nombre, category, stock}) {
+function ItemList({id, img, nombre, price}) {
     return (<>
-        <Card style={{ width: '16rem'}} key={id}>
-        <Card.Img variant="top" src={img} />
+        <Card className="ItemCard" style={{ width: '16rem'}} key={id}>
+        <Card.Img className="CardImg" variant="top" src={img} />
         <Card.Body>
             <Card.Title>{nombre}</Card.Title>
             <Card.Text>
-                {category}
-            </Card.Text>
-           <Card.Text>
-                {stock}
+                ${price}
             </Card.Text>
             <Link to={`/detail/${id}`}>
-                <Button variant="primary">Ver más</Button>
+                <Button variant="dark">Ver detalle</Button>
             </Link>
         </Card.Body>
         </Card>

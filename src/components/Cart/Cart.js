@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ItemCart from "../ItemCart/ItemCart";
 import Button from 'react-bootstrap/Button';
 import { getFirestore, collection, query, where, addDoc } from "firebase/firestore";
+import './Cart.css'
 
 
 const Cart = () => {
@@ -62,10 +63,10 @@ const Cart = () => {
             :
             "Por favor agrega items al carrito"
             }
-            <div>
+            <div className="Total">
                 Total: ${totalPrice}
             </div>
-            <Button variant="success" onClick={orderPurchase}>Finalizar compra</Button>
+            <Button variant="warning" onClick={orderPurchase}>Finalizar compra</Button>
 
         </>
     )

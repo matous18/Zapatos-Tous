@@ -1,9 +1,11 @@
 import Card from 'react-bootstrap/Card';
 import Stack from 'react-bootstrap/Stack';
+import { Button } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { useCartContext } from '../../CartContext/CartContext';
+import './ItemDetail.css'
 
 const ItemDetail = ({ id, img, category, nombre, detail, stock, price, item}) => {
   const {addProduct} = useCartContext();
@@ -30,20 +32,21 @@ const ItemDetail = ({ id, img, category, nombre, detail, stock, price, item}) =>
   
   return (
     <>
-          <Card style={{height: '30rem'}}>
-            <Card.Img variant="top" src={img} style={{ width: '30rem'}} />
+          <Card className='Item__Detail' style={{height: '30rem'}}>
+            <Card.Img className='Item__Detail__Img' variant="top" src={img} />
             <Card.Body>
-              <Card.Header>{category}</Card.Header>
               <Card.Title>{nombre}</Card.Title>
+              <Card.Header>{category}</Card.Header>
               <Stack gap={3}>
                 <div className="bg-light border">{detail}</div>
-                <div className="bg-light border">{stock}</div>
-                <div className="bg-light border">{price}</div>
+                <div className="bg-light border">$ {price}</div>
               </Stack>
             </Card.Body>
             {
               productAdded
-              ? <Link to='/cart'>Terminar compra</Link>
+              ? <Link to='/cart'>
+                    <Button className='btn__purchase' variant="dark">Terminar compra</Button>
+                </Link>
               : (<ItemCount initial={0} stock={stock} onAddItem={onAdd}></ItemCount>
             )}
           </Card>

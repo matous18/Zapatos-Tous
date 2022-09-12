@@ -1,0 +1,9 @@
+.ItemCard {
+    background-color: lightgray !important;
+    border: 2px solid black;
+}
+
+.CardImg {
+    width: 100%;
+    height: 50%;
+}

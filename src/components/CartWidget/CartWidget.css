@@ -1,0 +1,10 @@
+.cartContainer{
+    display: flex;
+    column-gap: 5px;
+    padding-right: 1vw;
+}
+
+.qty-display{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
