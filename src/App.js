@@ -8,6 +8,7 @@ import React from 'react';
 import CartProvider from './CartContext/CartContext';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Footer/Footer';
+import EndPurchase from './components/Cart/EndPurchase';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='' element={<h1>No hay productos</h1>}/>
           <Route path='/detail/:productId' element={<ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/end' element={<EndPurchase/>}></Route>
         </Routes>
         <Footer/>
       </CartProvider>

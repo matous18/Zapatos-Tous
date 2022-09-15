@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
+import { NavDropdown } from 'react-bootstrap';
 
 function NavBar() {
   return (
@@ -16,12 +17,14 @@ function NavBar() {
             <Nav.Link className='linkContainer'>
               <Link to='/' className="linkNav" >Home</Link>
             </Nav.Link>
-            <Nav.Link className='linkContainer'>
+            <NavDropdown title="Categoría" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1" className='linkDropdown'>
               <Link to='/category/Casual' className="linkNav" >Casual</Link>
-            </Nav.Link>
-            <Nav.Link className='linkContainer'>
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2" className='linkDropdown'>
               <Link to='/category/Formal' className="linkNav" >Formal</Link>
-            </Nav.Link>
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

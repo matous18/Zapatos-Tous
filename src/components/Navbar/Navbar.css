@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+
 .BrandName {
     width: 20%;
     font-size: 200% !important;
@@ -19,4 +20,13 @@
 
 .linkContainer:hover{
     background-color: yellow;
+}
+
+.linkDropdown{
+    text-decoration: none;
+    background-color: black !important;
+}
+
+.linkDropdown:hover{
+    background-color: yellow !important;
 }
